@@ -1,0 +1,189 @@
+
+
+
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+    <mat-toolbar style="color: white;" class="example-toolbar">
+        <button  mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <h4 class="example-app-name">MENU</h4>
+
+      </mat-toolbar>
+   
+     
+    <mat-sidenav-container class="example-sidenav-container"
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+        <mat-nav-list>
+          <a mat-list-item style="color: white;" *ngFor="let nav of fillerNav" (click)="irMenus(nav.name)">
+            <mat-icon>{{nav.icon}}</mat-icon>
+             {{nav.name}}
+          </a>
+        </mat-nav-list>
+      </mat-sidenav>
+  
+      <mat-sidenav-content>
+        <div class="container">
+            <br> <br>
+            <br> <br>
+            <h1 class="text-center"> CREAR AVIÓN</h1>
+            <br> <br>
+            <div class="text-center">
+              <div>
+          
+                <form [formGroup]="formulariobeta">
+          
+                  <div class="row ">
+                    <div class="col">
+                      <mat-form-field  appearance="outline" style="width:100%">
+                        <label for="marca">Marca </label>
+                        <input formControlName="marca"   matInput type="text" maxlength="50"  requird placeholder="Digite una Marca">
+                      </mat-form-field>
+                    </div>
+                      <div class="col">
+                        <mat-form-field  appearance="outline" style="width:60%">
+                          <label for="modelo">Modelo </label>
+                          <input matInput type="text"  formControlName="modelo" requird placeholder="Digite un modelo" >
+                        </mat-form-field>
+                      </div>
+                    </div>
+
+                    <div class="row ">
+                    <div class="col">
+                      <mat-form-field appearance="outline" style="width:100%">
+                        <label for="vuelos">Vuelos </label>
+                        <input matInput type="number"  formControlName="vuelos" requird placeholder="00">
+                      </mat-form-field>
+                    </div>
+                    <div class="col">
+                      <mat-form-field appearance="outline" style="width:75%">
+                        <label for="anio">Año </label>
+                        <input matInput type="number"  max="2022" formControlName="anio" requird placeholder="1999" >
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row ">
+                    <div class="col">
+                      <mat-form-field appearance="outline" style="width:100%">
+                        <label for="asiento">Numero de asientos </label>
+                        <input matInput type="number" max="1000"  formControlName="asiento" requird placeholder="00">
+                      </mat-form-field>
+                    </div>
+                      <div class="col">
+                        <br> <br>
+                        <button (click)="vistaPrevia()" class="btn btn-success" > Vista previa de asientos </button>
+                      </div>
+                </div>
+                  <br> <br>
+                  <button (click)="onSubmit()" class="btn btn-success" class="Guardar"> Guardar </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+       
+            <br> <br>
+            <table mat-table [dataSource]="dataSource" class="container mat-elevation-z8 tableVuelo " *ngIf="vuelo">
+
+              <!--- Note that these columns can be defined in any order.
+                                The actual rendered columns are set as a property on the row definition" -->
+          
+              <!-- Position Column -->
+              <ng-container matColumnDef="A">
+                  <th mat-header-cell *matHeaderCellDef> A </th>
+                  <td mat-cell *matCellDef="let element">
+                      <button class="asientos" 
+                          mat-raised-button  
+                          *ngIf="element[0]">{{element[0]}}</button>
+                  </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="B">
+                  <th mat-header-cell *matHeaderCellDef> B </th>
+                  <td mat-cell *matCellDef="let element">
+                      <button class="asientos"  
+                          mat-raised-button 
+                          *ngIf="element[1]">{{element[1]}}</button>
+                  </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="C">
+                  <th mat-header-cell *matHeaderCellDef> C </th>
+                  <td mat-cell *matCellDef="let element">
+                      <button class="asientos"
+                          mat-raised-button 
+                          *ngIf="element[2]">{{element[2]}}</button>
+                  </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="D">
+                  <th mat-header-cell *matHeaderCellDef> D </th>
+                  <td mat-cell *matCellDef="let element">
+                      <button class="asientos" 
+                          mat-raised-button 
+                          *ngIf="element[3]">{{element[3]}}</button>
+                  </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="E" *ngIf="tamanio">
+                  <th mat-header-cell *matHeaderCellDef> E </th>
+                  <td mat-cell *matCellDef="let element">
+                      <button class="asientos" 
+                          mat-raised-button 
+                          *ngIf="element[4]">{{element[4]}}</button>
+                  </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="F" *ngIf="tamanio">
+                  <th mat-header-cell *matHeaderCellDef> F </th>
+                  <td mat-cell *matCellDef="let element">
+                      <button class="asientos" 
+                          mat-raised-button 
+                          *ngIf="element[5]">{{element[5]}}</button>
+                  </td>
+              </ng-container>
+          
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+         
+          <div class="centrar">
+            <h1 class="text-center">Aviones</h1>
+            <table class="table table-striped text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>No. Asientos</th>
+                        <th>Año</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor= "let listaAviones of listaAviones" >
+                        <th>{{listaAviones.idavion}}</th>
+                        <th>{{listaAviones.marca}}</th>
+                        <th>{{listaAviones.modelo}}</th>
+                        <th>{{listaAviones.asientos}}</th>
+                        <th>{{listaAviones.anio}}</th>
+                        <button (click)="actualizarAerpuerto(listaAviones.idavion)" class="btn btn-info">Editar
+                        </button>
+                        <button (click)="eliminarAeropuerto(listaAviones.idavion)" class="btn btn-danger"
+                            style="margin-left: 10px">Eliminar </button>       
+                    </tr>
+                </tbody>
+            </table>
+          </div> 
+
+
+
+
+
+</mat-sidenav-content>
+</mat-sidenav-container>
+</div>
+
+<div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
+
+

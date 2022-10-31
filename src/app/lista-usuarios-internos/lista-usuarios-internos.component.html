@@ -1,0 +1,104 @@
+
+
+<nav class="navbar navbar-expand-sm">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <button  (click)="irPantalla()"  type="button" class="btn btn-link"  style="font-size: 20pt; color: white; font-family: 'Segoe UI Black', Courier, monospace ">HOME</button>
+        </li>
+        <li class="nav-item">
+            <button  (click)="crearUsuario()"  type="button" class="btn btn-link"  style="font-size: 20pt; color: white; font-family: 'Segoe UI Black', Courier, monospace ">CREAR
+                USUARIO</button>
+        </li>
+
+    </ul>
+</nav>
+<br> <br>
+<br> <br>
+<div class="text-center">
+    <h1>Usuarios Internos</h1>
+</div>
+<br> <br>
+<div class="container">
+    <label><u>Filtrar por: </u></label>
+</div>
+<br> <br>
+
+<div class="container">
+    <form [formGroup]="formulariobeta">
+        <div class="row ">
+            <div class="col">
+                <mat-form-field  appearance="standard" style="width:100%">
+                    <label for="nombre">Nombre </label>
+                    <input formControlName="nombre" matInput type="text" max="50" requird
+                        placeholder="Digite un nombre">
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <br> <br>
+                <mat-form-field appearance="fill">
+                    <mat-label >Aerolinea</mat-label>
+                    <mat-select formControlName="idaerolinea" >
+                      <mat-option *ngFor= "let listaAerolineas of listaAerolineas" [value]="listaAerolineas.idaerolineas">{{listaAerolineas.nombreaerolinea}}
+                      </mat-option>
+                    </mat-select >
+                  </mat-form-field>
+            </div>
+            <div class="col">
+                <br> <br>
+                <mat-form-field appearance="fill">
+                  <mat-label>Aeropuerto</mat-label>
+                  <mat-select formControlName="idaeropuerto" >
+                    <mat-option *ngFor= "let listaAeropuertos of listaAeropuertos" [value]="listaAeropuertos.idaeropuerto" >{{listaAeropuertos.nombreaeropuerto}}
+                    </mat-option>
+                  </mat-select >
+                </mat-form-field>
+            </div>
+
+        </div>
+        <br> <br>
+        <div class="text-center">
+            <button (click)="Prueba()" class="btn btn-success" class="Filtrar"> Filtrar </button>
+        </div>
+
+    </form>
+</div>
+
+
+<br> <br>
+<div class="centrar">
+    <table class="table table-striped text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>Id</th>
+                <th>Documento de Identificacion</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Aeropuerto</th>
+                <th>Aerolinea</th>
+                <th>Tipo</th>
+                <th>Numero de telefono</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tablaUsuarios of tablaUsuarios">
+                <th>{{tablaUsuarios.idusuariointerno}}</th>
+                <th>{{tablaUsuarios.documentoidentificaion}}</th>
+                <th>{{tablaUsuarios.nombres}}</th>
+                <th>{{tablaUsuarios.apellidos}}</th>
+                <th>{{tablaUsuarios.nombreaeropuerto}}</th>
+                <th>{{tablaUsuarios.nombreaerolinea}}</th>
+                <th>{{tablaUsuarios.nombrerol}}</th>
+                <th>{{tablaUsuarios.numerotelefoono}}</th>
+                <button (click)="actualizarUsuario(tablaUsuarios.idusuariointerno)" class="btn btn-info">Editar
+                </button>
+                <button (click)="eliminarUsuario(tablaUsuarios.idusuariointerno)" class="btn btn-danger"
+                    style="margin-left: 10px">Eliminar </button>
+                <button (click)="verDetalles(tablaUsuarios.idusuariointerno)" class="btn btn-primary"
+                    style="margin-left: 10px">Detalles </button>
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>

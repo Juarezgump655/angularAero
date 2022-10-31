@@ -1,0 +1,34 @@
+.navbar {
+    background-color: transparent !important;
+  }
+
+body{
+    background-image: url("src\assets\header.jpg") ;
+    background-size: cover;
+
+}
+
+h1{
+  font-family: 'Segoe UI Black', Courier, monospace;
+  color:white;
+  font-size: 60pt;
+}
+h2{
+  font-family: 'Segoe UI Light Italic', Courier, monospace;
+  color:white;
+  font-size: 25pt;
+}
+
+button{
+  border-color: #E45A3D;
+  font-family: 'Segoe UI Black', Courier, monospace;
+  font-size: 16pt;
+  background-color: #E45A3D;
+  border-radius: 60px
+}
+a{
+  
+  font-family: 'Segoe UI Black', Courier, monospace;
+  font-size: 16pt;
+  
+}

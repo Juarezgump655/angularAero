@@ -1,0 +1,36 @@
+
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+    <mat-toolbar style="color: white;" class="example-toolbar">
+        <button  mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <h1 class="example-app-name">MENU</h1>
+      <h2 class="example-app-name">{{aerolinea.nombreaerolinea}} </h2>
+      </mat-toolbar>
+   
+     
+    <mat-sidenav-container class="example-sidenav-container"
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+        <mat-nav-list>
+          <a mat-list-item (click)="irMenus(nav.name)" style="color: white;" *ngFor="let nav of fillerNav">
+            <mat-icon>{{nav.icon}}</mat-icon>
+            {{nav.name}}</a>
+        </mat-nav-list>
+      </mat-sidenav>
+  
+      <mat-sidenav-content>
+        <body>
+          <br />
+          <br />
+          <h5 class="text-center">BIENVENIDO AL SISTEMA </h5>
+          <br />
+          <br />
+          <h2 class="text-center" style="color: black;">Consulta en el menu de la derecha para ver los menus</h2>
+        </body>
+     
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  
+  <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
+  

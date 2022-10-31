@@ -1,0 +1,31 @@
+h1{
+    font-family: 'Roboto Black', Courier, monospace;
+    color:Black;
+    font-size: 60pt;
+  }
+
+label{
+    font-family: 'Segoe UI Black', Courier, monospace;
+    color:Black;
+    font-size: 15pt;
+}
+.centrar {
+    margin: 40px;
+    padding: 15px;
+ }
+
+ .navbar {
+  font-family: 'Roboto Black', Courier, monospace;
+  background-color: #0C6187;
+  font-size: 20pt;
+}
+
+.Filtrar{
+  width: 100px;
+  height: 50px;
+  font-family: 'Roboto MEdium', Courier, monospace;
+  font-size: 15pt;
+  color:white;
+  background-color:#0C6187;
+  border-color: white;
+} 

@@ -1,0 +1,73 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+    <mat-toolbar style="color: white;" class="example-toolbar">
+        <button mat-icon-button (click)="snav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <h4 class="example-app-name">MENU</h4>
+
+    </mat-toolbar>
+
+
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+            fixedTopGap="56">
+            <mat-nav-list>
+                <a mat-list-item style="color: white;" *ngFor="let nav of fillerNav" (click)="irMenus(nav.name)">
+                    <mat-icon>{{nav.icon}}</mat-icon>
+                    {{nav.name}}
+                </a>
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <br> <br>
+            <br> <br>
+            <div class="text-center">
+                <h1>{{nombreAerolinea}}</h1>
+            <br> <br>
+                <h2>Aviones</h2>
+            </div>
+            <br> <br>
+            <div class="text-center">
+                <button (click)="nuevaConsulta()" class="btn btn-success" class="Filtrar"> Nueva Consulta </button>
+            </div>
+            <br> <br>
+            <div class="centrar">
+                <table class="table table-striped text-center" id="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>Modelo</th>
+                            <th>Marca</th>
+                            <th>Año</th>
+                            <th>Vuelos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor= "let avion of avion" >
+                            <th >{{avion.idavion}}</th>
+                            <th >{{avion.modelo}}</th>
+                            <th >{{avion.marca}}</th>
+                            <th >{{avion.anio}}</th>
+                            <th >{{avion.vuelos}}</th>
+                        </tr>
+            
+                    </tbody>
+                </table>
+                <br> <br>
+                <div class="text-center">
+                    <div class="col">
+                        <button (click)="Imprimirpdf()" class="btn btn-success" class="Filtrar"> Imprimir</button> 
+            
+                    <button (click)="exportexcel()" class="btn btn-success" class="Excel"> Excel</button>
+                    </div>
+            
+                </div>
+            </div> 
+            
+
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
+
+<div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>

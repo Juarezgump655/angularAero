@@ -1,0 +1,86 @@
+h1{
+    font-family: 'Roboto Black', Courier, monospace;
+    color:Black;
+    font-size: 60pt;
+  }
+
+label{
+    font-family: 'Segoe UI Black', Courier, monospace;
+    color:Black;
+    font-size: 20pt;
+}
+input{
+  font-size: 15pt;
+}
+
+.asientos {
+  margin: 15px;
+  padding: 15px;
+}
+.centrar {
+    margin: 40px;
+    padding: 15px;
+ }
+
+ th {
+  size: 20%;
+  width: 10px;
+  height: 10px;
+ }
+
+
+ .navbar {
+  font-family: 'Roboto Black', Courier, monospace;
+  background-color: #516FFF;
+  font-size: 20pt;
+}
+ 
+.Filtrar{
+  width: 175px;
+  height: 50px;
+  font-family: 'Roboto Medium', Courier, monospace;
+  font-size: 15pt;
+  color:white;
+  background-color:#0C6187;
+  border-color: white;
+} 
+
+.asientos.selected{
+  background-color:#13ED10;
+}
+
+.tableVuelo {
+  width: 40%;
+}
+
+.asientos{
+  border: black 1.5px solid;
+  border-radius: 25px;
+  font-family: 'Roboto Black', Courier, monospace;
+  height: 40pt;
+  width:  30pt;
+
+}
+
+/* ::ng-deep .mat-checkbox-checked{
+  background-color: green;
+} */
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+  border-color: black;
+}
+
+::ng-deep .mat-checkbox  {
+  height: 40pt;
+  width:  30pt;
+}
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+  background-color: #13ED10 !important;
+}
+
+button.cero
+{
+  background-color: green;  
+}
+ 
+

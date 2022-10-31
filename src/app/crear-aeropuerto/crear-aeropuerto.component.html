@@ -1,0 +1,57 @@
+<body>
+    <button  (click)="Home()"  type="button" class="btn btn-link"  style="font-size: 20pt; color: white; font-family: 'Segoe UI Black', Courier, monospace ">Juarezgump655@</button>
+  <br> <br>
+  <br> <br>
+  <div class="container">
+    <h1 class="text-center"> CREAR AEROPUERTO</h1>
+    <br> <br>
+    <div class="text-center">
+      <div>
+  
+        <form [formGroup]="formulariobeta">
+  
+          <div class="row ">
+            <div class="col">
+              <mat-form-field  appearance="standard" style="width:100%">
+                <label for="nombreaeropuerto">Nombre del Aeropuerto </label>
+                <input  formControlName="nombreaeropuerto"   matInput type="text" maxlength="50"  required pattern ="[a-zA-Z0-9]{1,50}"  requird placeholder="Digite un Nombre">
+              </mat-form-field>
+            </div>
+              <div class="col">
+                <mat-form-field appearance="standard" style="width:60%">
+                  <label for="nopuertas">Numero de puertas </label>
+                  <input matInput type="number"  formControlName="nopuertas"  placeholder="00" required pattern="[0-9]{1,5}" >
+                </mat-form-field>
+              </div>
+            </div>
+            
+            <div class="row ">
+            <div class="col">
+              <mat-form-field   appearance="standard" style="width:100%">
+                <label for="direccion">Direccion </label>
+                <input matInput type="text"  maxlength="100" formControlName="direccion" requird placeholder="Digite una direccion"  required pattern ="[a-zA-Z0-9]{1,50}">
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="standard" style="width:75%">
+                <label for="pais">Pais </label>
+                <input matInput type="text" formControlName="pais" requird placeholder="Digite un pais"   required pattern ="[a-zA-Z0-9]{1,50}">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row ">
+            <div class="col">
+              <mat-form-field   appearance="standard" style="width:45%">
+                <label for="notelefono">Numero de telefono </label>
+                <input matInput type="number" min="10000000" max="99999999" formControlName="notelefono"  required pattern ="[0-9]{1,12}" requird placeholder="99999999">
+              </mat-form-field>
+            </div>
+          </div>
+          <br> <br>
+          <button (click)="Prueba()" class="btn btn-success" class="Guardar"> Guardar </button>
+        </form>
+      </div>
+    </div>
+  </div>
+    
+  </body>

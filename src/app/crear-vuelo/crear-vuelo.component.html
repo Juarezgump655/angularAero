@@ -1,0 +1,201 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+    <mat-toolbar style="color: white;" class="example-toolbar">
+        <button  mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <h4 class="example-app-name">MENU</h4>
+      </mat-toolbar>
+   
+     
+    <mat-sidenav-container class="example-sidenav-container"
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+        <mat-nav-list>
+          <a mat-list-item style="color: white;" *ngFor="let nav of fillerNav" (click)="irMenus(nav.name)">
+            <mat-icon>{{nav.icon}}</mat-icon>
+             {{nav.name}}
+          </a>
+        </mat-nav-list>
+      </mat-sidenav>
+  
+      <mat-sidenav-content>
+        <br> <br>
+        <form [formGroup]="formulariobeta">
+        <div class="container">
+          <div class="text-center">
+            <h1>Agregar Vuelos</h1>
+            <br> <br>
+       
+              <div class="row ">
+                <div class="col">
+                  <mat-form-field  appearance="standard" style="font-size: 12pt; width:100%">
+                    <label for="Fechasalida">Fecha de Salida </label>
+                    <input  formControlName="Fechasalida"   matInput type="date"  >
+                  </mat-form-field>
+                </div>
+                  <div class="col">
+                    <mat-form-field hintLabel="Digite una hora aproximada" appearance="standard" style="font-size: 12pt; width:75%">
+                      <label for="horasalida">Hora de Salida </label>
+                      <input matInput type="time" formControlName="horasalida" required placeholder="00:00"  >
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row ">
+                <div class="col">
+                  <mat-form-field appearance="standard" style="font-size: 12pt; width:100%">
+                    <label for="Fechallegada">Fecha de Llegada </label>
+                    <input matInput type="date"  formControlName="Fechallegada"  >
+                  </mat-form-field>
+                </div>
+                <div class="col">
+                  <mat-form-field hintLabel="Digite una hora aproximada"  appearance="standard"style="font-size: 12pt; width:75%">
+                    <label for="horaentrada">Hora de Llegada</label>
+                    <input matInput type="time" formControlName="horaentrada" required placeholder="00:00" >
+                  </mat-form-field>
+                </div>
+              </div>
+
+  
+          
+        </div>
+        </div>
+        
+        <br> <br>
+        <div class="container">
+          <div class="centrar">
+            <h3 class="text-center">Seleccione un Aeropuerto de llegada</h3>
+            <table class="table table-striped text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre del Aeropuerto</th>
+                        <th>Ciudad</th>
+                        <th>Pais</th>
+                        <th>No. Telefono</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor= "let Aeropuertos of Aeropuertos" >
+                        <th>{{Aeropuertos.idaeropuerto}}</th>
+                        <th>{{Aeropuertos.nombreaeropuerto}}</th>
+                        <th>{{Aeropuertos.direccion}}</th>
+                        <th>{{Aeropuertos.pais}}</th>
+                        <th>{{Aeropuertos.notelefono}}</th>
+                        <button (click)="SeleccionarA(Aeropuertos.idaeropuerto)" class="btn btn-info"
+                          >Selccionar </button>
+          
+                    </tr>
+                </tbody>
+            </table>
+          </div> 
+          <br> <br>
+          <div class="centrar">
+            <h3 class="text-center">Aviones Disponibles</h3>
+            <table class="table table-striped text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>No. Asientos</th>
+                        <th>Año</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor= "let listaAviones of listaAviones" >
+                        <th>{{listaAviones.idavion}}</th>
+                        <th>{{listaAviones.marca}}</th>
+                        <th>{{listaAviones.modelo}}</th>
+                        <th>{{listaAviones.asientos}}</th>
+                        <th>{{listaAviones.anio}}</th>
+                        <button (click)="seleccionarAvion(listaAviones.idavion)" class="btn btn-info"
+                          >Selccionar </button>
+          
+                    </tr>
+                </tbody>
+            </table>
+          </div> 
+          <br> <br>
+
+        </div>
+        
+        <div class="container">
+          <div class="row ">
+            <div class="col">
+              <mat-form-field  appearance="standard" style="font-size: 12pt; width:100%">
+                <label for="precioEconomica">Precio Clase Economica </label>
+                <input  formControlName="precioEconomica"  matInput type="number"  required placeholder="00.00">
+              </mat-form-field>
+            </div>
+  
+              <div class="col">
+                <mat-form-field appearance="standard" style="font-size: 12pt; width:75%">
+                  <label for="claseEjecutiva">Precio Clase Ejectuiva </label>
+                  <input  matInput type="number"formControlName="claseEjecutiva" required placeholder="00.00"  >
+                </mat-form-field>
+              </div>
+  
+              <div class="col">
+                <br> <br>
+                <mat-form-field appearance="fill">
+                  <mat-label >No. puerta</mat-label>
+                  <mat-select formControlName="noPuerta" >
+                    <mat-option *ngFor= "let puertas of puertas" [value]="puertas.id_puerta" >Puerta Numero: {{puertas.puertanu}}
+                    </mat-option>
+                  </mat-select >
+                </mat-form-field>
+
+            </div> 
+            </div>
+            
+
+
+        </div>
+        <br> <br>
+            <div class="centrar">
+              <h3 class="text-center">Tripulacion</h3>
+              <table class="table table-striped text-center">
+                  <thead class="table-dark">
+                      <tr>
+                          <th>Id</th>
+                          <th>Piloto</th>
+                          <th>Co-piloto</th>
+                          <th>Ingeniero</th>
+                          <th>Tripulante 1</th>
+                          <th>Tripulante 2</th>
+                          <th>Tripulante 3</th>
+                          <th>Acciones</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor= "let tripulacion of tripulacion" >
+                          <th>{{tripulacion.idtripulacion}}</th>
+                          <th>{{tripulacion.nombres}}</th>
+                          <th>{{tripulacion.nombrecopi}}</th>
+                          <th>{{tripulacion.nombresInge}}</th>
+                          <th>{{tripulacion.nombresTripu}}</th>
+                          <th>{{tripulacion.nombreTripu2}}</th>
+                          <th>{{tripulacion.nombreTripu3}}</th>
+                          <button (click)="seleccionarTripu(tripulacion.idtripulacion)" class="btn btn-info"
+                            >Selccionar </button>
+            
+                      </tr>
+                  </tbody>
+              </table>
+            </div> 
+            <div class="text-center">
+              <button (click)="onSubmit()" class="btn btn-success" class="Guardar"> Guardar </button>
+
+            </div>
+      </form>
+      <br> <br>
+      <br> <br>
+
+
+</mat-sidenav-content>
+</mat-sidenav-container>
+</div>
+
+<div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
+

@@ -1,0 +1,21 @@
+.Guardar{
+    width: 175px;
+    height: 50px;
+    font-family: 'Segoe UI Black', Courier, monospace;
+    font-size: 25pt;
+    color:white;
+    background-color:#0C6187;
+    border-color: white;
+    border-radius: 30px
+  } 
+  label {
+    font-size: 14pt;
+  }
+  input {
+    font-size: 14pt;
+  }
+  h1{
+    font-family: 'Roboto Black', Courier, monospace;
+    color:Black;
+    font-size: 60pt;
+  }

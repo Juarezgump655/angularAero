@@ -1,0 +1,10 @@
+.padre {
+    background: yellow;
+    height: 150px;
+    /*IMPORTANTE*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+ 

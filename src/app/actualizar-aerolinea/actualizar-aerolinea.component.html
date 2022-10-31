@@ -1,0 +1,62 @@
+<body>
+    <button  (click)="Home()"  type="button" class="btn btn-link"  style="font-size: 20pt; color: white; font-family: 'Segoe UI Black', Courier, monospace ">Juarezgump655@</button>
+  <br> <br>
+  <br> <br>
+  <div class="container">
+    <h1 class="text-center"> MODIFCAR AEROLINEA</h1>
+    <br> <br>
+    <div class="text-center">
+      <div>
+  
+        <form [formGroup]="formulariobeta">
+  
+          <div class="row ">
+            <div class="col">
+              <mat-form-field  appearance="standard" style="width:100%">
+                <label for="nombreaerolinea">Nombre de la Aerolinea </label>
+                <input formControlName="nombreaerolinea"   matInput type="text" maxlength="50" value="{{aerolinea.nombreaerolinea}}"   requird placeholder="Digite un Nombre">
+              </mat-form-field>
+            </div>
+              <div class="col">
+                <mat-form-field appearance="standard" style="width:60%">
+                  <label for="correo">Correo </label>
+                  <input matInput type="email"  formControlName="correo"  value="{{aerolinea.correo}}"  requird placeholder="example@example.com" >
+                </mat-form-field>
+              </div>
+            </div>
+            
+            <div class="row ">
+                <div class="col">
+                    <mat-form-field   appearance="standard" style="width:100%">
+                      <label for="numerotelefono">Numero de telefono </label>
+                      <input matInput type="number" min="10000000" max="99999999" value="{{aerolinea.numerotelefono}}" formControlName="numerotelefono" requird placeholder="99999999">
+                    </mat-form-field>
+                  </div>
+            <div class="col">
+              <mat-form-field   appearance="standard" style="width:45%">
+                <label for="codigopais">Codigo del pais </label>
+                <input matInput type="number"  maxlength="100" formControlName="codigopais" value="{{aerolinea.codigopais}}" requird placeholder="Digite un numero">
+              </mat-form-field>
+            </div>
+        
+          </div>
+          <div class="row ">
+            <div class="col">
+              <br> <br>
+              <mat-form-field appearance="fill">
+                <mat-label style="color: white">Aeropuerto</mat-label>
+                <mat-select formControlName="idaeropuerto" >
+                  <mat-option *ngFor= "let listaAeropuertos of listaAeropuertos" [value]="listaAeropuertos.idaeropuerto" >{{listaAeropuertos.nombreaeropuerto}}
+                  </mat-option>
+                </mat-select >
+              </mat-form-field>
+            </div>
+          </div>
+          <br> <br>
+          <button (click)="Prueba()" class="btn btn-success" class="Guardar"> Guardar </button>
+        </form>
+      </div>
+    </div>
+  </div>
+    
+  </body>

@@ -1,0 +1,29 @@
+
+<body>
+  <button  (click)="Home()"  type="button" class="btn btn-link"  style="font-size: 20pt; color: white; font-family: 'Segoe UI Black', Courier, monospace ">Juarezgump655@</button>
+  <div class="container">
+    <br> <br>
+    <br> <br>
+
+    <h1 class="text-center"  style="color:white;" >AEROPUERTO LOS PRIMOS</h1>
+    <div class="text-center">
+      <form [formGroup]="formulariobeta">
+        <mat-form-field   appearance="standard" style="width:50%"  >
+          <label style="color:white;" for="numeroPasaporte" >Numero de Pasaporte </label>
+          <input formControlName="numeroPasaporte" matInput type="number" max="999999999999999" requird
+            placeholder="Digite su Numero de Pasaporte" style="font-size: 20pt; color: white;">
+        </mat-form-field>
+        <br> <br>
+
+        <mat-form-field appearance="standard" style="width:50%"  >
+          <label  style="color:white;" for="contrasenia">Contraseña </label>
+          <input matInput type="password" formControlName="contrasenia" requird placeholder="**********" style="font-size: 20pt; color: white;">
+        </mat-form-field>
+        <br> <br>
+        <br> <br>
+      </form>
+      <button (click)="onSubmit()" class="btn btn-success" style="font-size: 20pt;"> Iniciar Sesion </button>
+    </div>
+
+  </div>
+</body>

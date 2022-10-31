@@ -1,0 +1,43 @@
+body{
+    background-image: url("src\assets\Fondo.jpg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+h3{
+    font-family: 'Segoe UI Black', Courier, monospace;
+    color:white;
+    font-size: 20pt;
+  }
+  ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: white !important;
+  } 
+
+
+   ::placeholder{
+    color: #C2C2C2 !important;
+  }
+
+
+
+
+   h1{
+    font-family: 'Segoe UI Black', Courier, monospace;
+    color:white;
+    font-size: 45pt;
+  }
+  label {
+    color: white ;
+  }
+  input {
+    color: white ;
+  }
+
+  .Guardar{
+    font-family: 'Segoe UI Black', Courier, monospace;
+    font-size: 25pt;
+    color:white;
+    background-color:#598A8E;
+    border-radius: 30px
+  }

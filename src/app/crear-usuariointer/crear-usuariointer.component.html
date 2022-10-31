@@ -1,0 +1,128 @@
+ <body>
+    <button  (click)="Home()"  type="button" class="btn btn-link"  style="font-size: 20pt; color: white; font-family: 'Segoe UI Black', Courier, monospace ">Juarezgump655@</button>
+  <br> <br>
+  <div class="container">
+    <h1 class="text-center"> CREAR USUARIO</h1>
+    <br> <br>
+    <div class="text-center">
+      <div>
+  
+        <form [formGroup]="formulariobeta">
+  
+          <div class="row ">
+            <div class="col">
+              <mat-form-field  appearance="standard" style="width:100%">
+                <label for="documentoidentificaion">Documento de Identificacion</label>
+                <input formControlName="documentoidentificaion" matInput type="number" max="99999999999999999999"  requird placeholder="Digite su DPI sin espacios" required pattern ="[0-9]{1,15}">
+              </mat-form-field>
+            </div>
+              <div class="col">
+                <mat-form-field  appearance="standard" style="width:60%">
+                  <label for="fechanacimiento">Fecha de nacimiento </label>
+                  <input matInput type="date" formControlName="fechanacimiento" >
+                </mat-form-field>
+              </div>
+            </div>
+            
+            <div class="row ">
+            <div class="col">
+              <mat-form-field   appearance="standard" style="width:100%">
+                <label for="nombres">Nombre </label>
+                <input matInput type="text" maxlength="100" formControlName="nombres" requird placeholder="Digite su Nombre" required pattern ="[a-zA-Z0-9]{1,50}">
+              </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field   appearance="standard" style="width:100%">
+                  <label for="apellidos">Apellidos </label>
+                  <input matInput type="text" maxlength="100" formControlName="apellidos" requird placeholder="Digite sus apellidos" required pattern ="[a-zA-Z0-9]{1,50}">
+                </mat-form-field>
+              </div>
+            <div class="col">
+              <mat-form-field   appearance="standard" style="width: 60%">
+                <label for="nacionalidad">Nacionalidad </label>
+                <input matInput type="text" maxlength="100" formControlName="nacionalidad" requird placeholder="Digite su Nacionalidad" required pattern ="[a-zA-Z0-9]{1,50}">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row ">
+            <div class="col">
+              <mat-form-field appearance="standard" style="width:100%">
+                <label for="correo">Correo </label>
+                <input matInput type="email" formControlName="correo" requird placeholder="Digite su correo electronico"  required pattern ="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}">
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field   appearance="standard" style="width: 40%">
+                <label for="codigopais">Codigo del pais </label>
+                <input matInput type="number" max="999" formControlName="codigopais" requird placeholder="502" required pattern ="[0-9]{1,3}">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row ">
+            <div class="col">
+              <mat-form-field appearance="standard" style="width:100%">
+                <label for="direccion">Direccion </label>
+                <input matInput type="text" minlength="1" formControlName="direccion" requird placeholder="Digite su Direccion" required pattern ="[a-zA-Z0-9]{1,50}">
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field  appearance="standard" style="width:100%">
+                <label for="numerotelefoono">Numero de telefono </label>
+                <input matInput type="number" min="10000000" max="99999999" formControlName="numerotelefoono" requird placeholder="99999999" required pattern ="[0-9]{1,12}">
+              </mat-form-field>
+            </div>
+            <div class="w-100"></div>
+  
+            <div class="col">
+              <mat-form-field   appearance="standard" style="width:100%">
+                <label for="numerotelefoonoem">Numero de telefono para emergencias </label>
+                <input matInput type="number" min="10000000" max="99999999" formControlName="numerotelefoonoem" requird placeholder="99999999" required pattern ="[0-9]{1,12}">
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field  appearance="standard" style="width:100%">
+                <label for="contrasenia">contraseña</label>
+                <input matInput type="password"  minlength="6" formControlName="contrasenia" requird placeholder="********">
+              </mat-form-field>
+            </div>
+            <div class="w-100"></div>
+  
+            <div class="col">
+              <br> <br>
+              <mat-form-field appearance="fill">
+                <mat-label style="color: white">Aeropuerto</mat-label>
+                <mat-select formControlName="idaeropuerto" >
+                  <mat-option *ngFor= "let listaAeropuertos of listaAeropuertos" [value]="listaAeropuertos.idaeropuerto" >{{listaAeropuertos.nombreaeropuerto}}
+                  </mat-option>
+                </mat-select >
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <br> <br>
+              <mat-form-field appearance="fill">
+                <mat-label style="color: white">Aerolinea</mat-label>
+                <mat-select formControlName="idaerolinea" >
+                  <mat-option *ngFor= "let listaAerolineas of listaAerolineas" [value]="listaAerolineas.idaerolineas">{{listaAerolineas.nombreaerolinea}}
+                  </mat-option>
+                </mat-select >
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <br> <br>
+              <mat-form-field appearance="fill">
+                <mat-label style="color: white">Rol</mat-label>
+                <mat-select formControlName="idrol" >
+                  <mat-option *ngFor= "let listarol of listarol" [value]="listarol.idroles">{{listarol.nombreRol}}
+                  </mat-option>
+                </mat-select >
+              </mat-form-field>
+            </div>
+          </div>
+  
+          <button (click)="Prueba()" class="btn btn-success" class="Guardar"> Guardar </button>
+        </form>
+      </div>
+    </div>
+  </div>
+    
+  </body>

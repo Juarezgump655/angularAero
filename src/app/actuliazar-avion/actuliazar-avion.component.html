@@ -1,0 +1,53 @@
+<br> <br>
+<br> <br>
+<br> <br>
+<h1 class="text-center"> CREAR AVIÓN</h1>
+<br> <br>
+<div class="text-center container">
+  <div>
+
+    <form [formGroup]="formulariobeta">
+
+      <div class="row ">
+        <div class="col">
+          <mat-form-field  appearance="outline" style="width:100%">
+            <label for="marca">Marca </label>
+            <input formControlName="marca"   matInput type="text" maxlength="50" value="{{avio.marca}}" requird placeholder="Digite una Marca">
+          </mat-form-field>
+        </div>
+          <div class="col">
+            <mat-form-field  appearance="outline" style="width:60%">
+              <label for="modelo">Modelo </label>
+              <input matInput type="text"  formControlName="modelo"  value="{{avio.modelo}}"  requird placeholder="Digite un modelo" >
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row ">
+        <div class="col">
+          <mat-form-field appearance="outline" style="width:100%">
+            <label for="vuelos">Vuelos </label>
+            <input matInput type="number"  formControlName="vuelos"  value="{{avio.vuelos}}" requird placeholder="00">
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline" style="width:75%">
+            <label for="anio">Año </label>
+            <input matInput type="number"  max="2022" formControlName="anio"  value="{{avio.anio}}" requird placeholder="1999" >
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row ">
+        <div class="col">
+          <mat-form-field appearance="outline" style="width:100%">
+            <label for="asiento">Numero de asientos </label>
+            <input matInput type="number" max="1000"  formControlName="asiento" value="{{avio.asientos}}"  requird placeholder="00" >
+          </mat-form-field>
+        </div>
+          <div class="col">
+            <br> <br>
+          </div>
+    </div>
+      <br> <br>
+      <button (click)="onSubmit()" class="btn btn-success" class="Guardar"> Guardar </button>
+    </form>

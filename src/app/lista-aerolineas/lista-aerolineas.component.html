@@ -1,0 +1,92 @@
+<nav class="navbar navbar-expand-sm">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <button  (click)="irPantalla()"  type="button" class="btn btn-link"  style="font-size: 20pt; color: white; font-family: 'Segoe UI Black', Courier, monospace ">HOME</button>
+        </li>
+        <li class="nav-item">
+            <button  (click)="crearUsuario()"  type="button" class="btn btn-link"  style="font-size: 20pt; color: white; font-family: 'Segoe UI Black', Courier, monospace ">CREAR AEROLINEA</button>
+        </li>
+    </ul>
+</nav>
+<br> <br>
+<br> <br>
+<div class="text-center">
+    <h1>AEROLINEAS</h1>
+</div>
+<br> <br>
+<div class="container">
+    <label><u>Filtrar por:</u>  ID o por Nombre y Aeropuerto  </label>
+</div>
+<br> <br>
+
+<div class="container">
+    <form [formGroup]="formulariobeta">
+        <div class="row ">
+            <div class="col">
+                <mat-form-field  appearance="standard" style="width:100%">
+                    <label for="numeroAerolinea">No. Aerolinea</label>
+                    <input formControlName="numeroAerolinea" matInput type="number" max="50" requird
+                        placeholder="Digite el codigo">
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field  appearance="standard" style="width:100%">
+                    <label for="Nombre">Nombre de la Aerolinea </label>
+                    <input formControlName="Nombre" matInput type="text" maxlength="25" requird
+                        placeholder="Digite un nombre">
+                </mat-form-field>
+            </div>
+            <div class="col">
+            <br> <br>
+            <mat-form-field appearance="fill">
+              <mat-label>Aeropuerto</mat-label>
+              <mat-select formControlName="Aeropuerto" >
+                <mat-option *ngFor= "let listaAeropuertos of listaAeropuertos" [value]="listaAeropuertos.idaeropuerto" >{{listaAeropuertos.nombreaeropuerto}}
+                </mat-option>
+              </mat-select >
+            </mat-form-field>
+        </div>
+        </div>
+        <br> <br>
+        <div class="text-center">
+            <button (click)="Prueba()" class="btn btn-success" class="Filtrar" > Filtrar </button>
+        </div>
+       
+    </form>
+</div>
+
+
+<br> <br>
+<div class="centrar">
+    <table class="table table-striped text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>Id</th>
+                <th>Aerolinea </th>
+                <th>Contacto </th>
+                <th>Correo</th>
+                <th>Aeropuerto</th>
+                <th>Vuelos</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor= "let listaAerolineas of listaAerolineas" >
+                <th>{{listaAerolineas.idaerolineas}}</th>
+                <th>{{listaAerolineas.nombreaerolinea}}</th>
+                <th>{{listaAerolineas.numerotelefono}}</th>
+                <th>{{listaAerolineas.correo}}</th>
+                <th>{{listaAerolineas.nombreaeropuerto}}</th>
+                <th>{{listaAerolineas.vuelos}}</th>
+                <button (click)="actualizarAerolinea(listaAerolineas.idaerolineas)" class="btn btn-info">Editar
+                </button>
+                <button (click)="eliminarAeropuerto(listaAerolineas.idaerolineas)" class="btn btn-danger"
+                    style="margin-left: 10px">Eliminar </button>
+                <button (click)="verDetalles(listaAerolineas.idaerolineas)" class="btn btn-primary"
+                    style="margin-left: 10px">Detalles </button>
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>

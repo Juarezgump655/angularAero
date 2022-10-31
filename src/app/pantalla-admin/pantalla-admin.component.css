@@ -1,0 +1,39 @@
+.navbar {
+    font-family: 'Roboto Black', Courier, monospace;
+    background-color: #0C6187;
+    font-size: 20pt;
+}
+
+h1{
+    font-family: 'Segoe UI Black', Courier, monospace;
+    color:black;
+    font-size: 45pt;
+  }
+  
+.letra{
+    font-family: 'Roboto Black', Courier, monospace;
+    color:black;
+    font-size: 25pt;  
+    text-align: center;
+}
+
+.fotillo{
+    background-image: url("src\assets\agregarAerolinea.jpg") ; 
+    width: 100;
+    height: 100;
+    text-align: center;
+}
+
+.fotoUsuarios{
+    background-image: url("src\assets\Traabajodres.jpg") ;
+    width: 100;
+    height: 100;
+    text-align: center;
+}
+.fotoaero{
+    background-image: url("src\assets\agregarVuelo.jpg") ;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 533px;
+    text-align: center;
+}

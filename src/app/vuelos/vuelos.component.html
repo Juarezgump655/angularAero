@@ -1,0 +1,114 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+    <mat-toolbar style="color: white;" class="example-toolbar">
+        <button mat-icon-button (click)="snav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <h4 class="example-app-name">MENU</h4>
+
+    </mat-toolbar>
+
+
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+            fixedTopGap="56">
+            <mat-nav-list>
+                <a mat-list-item style="color: white;" *ngFor="let nav of fillerNav" (click)="irMenus(nav.name)">
+                    <mat-icon>{{nav.icon}}</mat-icon>
+                    {{nav.name}}
+                </a>
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <br> <br>
+            <br> <br>
+            <div class="text-center">
+            <br> <br>
+                <h2>Vuelos</h2>
+            </div>
+            <br> <br>
+            <br> <br>
+            <form [formGroup]="formulariobeta">
+                <div class="container text-center">
+                    <div class="row ">
+                        <div class="col">
+                          <mat-form-field appearance="standard" style="width:75%">
+                            <label for="fechadesde">Fecha desde: </label>
+                            <input formControlName="fechadesde" matInput type="date" placeholder="Digite una fecha">
+                          </mat-form-field>
+                        </div>
+                          <div class="col">
+                            <mat-form-field  appearance="standard" style="width:60%">
+                              <label for="fechahasta">Fecha hasta: </label>
+                              <input matInput type="date" formControlName="fechahasta"  placeholder="Digite una fecha" >
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col">
+                              <mat-form-field appearance="standard" style="width:75%">
+                                <label for="horadesde">Hora desde: </label>
+                                <input formControlName="horadesde" matInput type="time" placeholder="Digite una hora desde">
+                              </mat-form-field>
+                            </div>
+                              <div class="col">
+                                <mat-form-field  appearance="standard" style="width:60%">
+                                  <label for="horahasta">Hora hasta: </label>
+                                  <input matInput type="time" formControlName="horahasta" placeholder="Digite una hora hasta" >
+                                </mat-form-field>
+                              </div>
+                            </div>
+                </div>
+                </form>
+                <br>
+                <div class="text-center">
+                    <button (click)="nuevaConsulta()" class="btn btn-success" class="Filtrar">  Buscar </button>
+                </div>
+            <div class="centrar"  *ngIf="mostrar">
+                <table class="table table-striped text-center" id="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Numero de vuelo</th>
+                            <th>Modelo de avión</th>
+                            <th>Aerolinea</th>
+                            <th>Origen</th>
+                            <th>Destino</th>
+                            <th>Fecha de salida</th>
+                            <th>Hora de salida</th>
+                            <th>Fecha de Llegada</th>
+                            <th>Hora de Llegada</th>
+                        </tr>
+                    </thead>
+                  <tbody>
+                  <tr *ngFor= "let vuelolista of vuelolista" >
+                            <th >{{vuelolista.idvuelo}}</th>
+                            <th >{{vuelolista.marca}} {{vuelolista.modelo}}</th>
+                            <th >  {{vuelolista.nombreaerolinea}}   </th>
+                            <th >{{vuelolista.salida}}</th>
+                            <th >{{vuelolista.destino}}</th>
+                            <th >{{vuelolista.fechasalida}}</th>
+                            <th >{{vuelolista.horasalida}}</th>
+                            <th >{{vuelolista.fechallegada}}</th>
+                            <th >{{vuelolista.horallegada}}</th>
+                        </tr> 
+            
+                    </tbody>
+                </table>
+                <br> <br>
+                <div class="text-center">
+                    <div class="col">
+                        <button (click)="Imprimirpdf()" class="btn btn-success" class="Filtrar"> Imprimir</button> 
+            
+                    <button (click)="exportexcel()" class="btn btn-success" class="Excel"> Excel</button>
+                    </div>
+            
+                </div>
+            </div> 
+            
+
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
+
+<div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
+

@@ -1,0 +1,195 @@
+<nav class="navbar navbar-expand-sm">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <button (click)="Home()" type="button" class="btn btn-link"
+                style="font-size: 20pt; color: white; font-family: 'Segoe UI Black', Courier, monospace; border: transparent; ">Juarezgump655@</button>
+        </li>
+    </ul>
+</nav>
+<br> <br>
+<br>
+
+<div class="text-center">
+    <h1>Consulta si hay vuelos disponibles</h1>
+</div>
+
+<br>
+<div class="container">
+    <div class="text-center">
+        <form [formGroup]="formulariobeta">
+
+            <div class="row ">
+                <div class="col">
+                    <mat-form-field appearance="standard" style="width:50%">
+                        <label for="fechasalida">Fecha de salida </label>
+                        <input formControlName="fechasalida" matInput type="date">
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <br> <br>
+                    <mat-form-field appearance="fill" style="width:75%">
+                        <mat-label>Ciudad</mat-label>
+                        <mat-select formControlName="idaeropuerto">
+                            <mat-option *ngFor="let ListaCiudades of ListaCiudades"
+                                [value]="ListaCiudades.idaeropuerto">
+                                {{ListaCiudades.direccion}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <br> <br>
+
+            <button (click)=" filtro()" class="btn btn-success" class="Filtrar"> Consultar </button>
+
+        </form>
+    </div>
+    <form [formGroup]="formularioAsientos">
+        <br> <br>
+        <div class="row text-center">
+            <div class="col">
+                <mat-form-field appearance="standard" style="width:75%">
+                    <label for="noAsientos">Numero de boletos </label>
+                    <input matInput type="number" formControlName="noAsientos" requird
+                        placeholder="Digite el numero de asientos" required pattern="[0-9]{1,3}">
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="standard" style="width:75%">
+                    <label for="maletas">Maletas </label>
+                    <input matInput type="number" formControlName="maletas" required pattern="[0-9]{1,3}"
+                        placeholder="Digite el numero de maletas">
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <br> <br>
+                <mat-form-field appearance="fill">
+                    <mat-label >Clase</mat-label>
+                    <mat-select formControlName="clase" >
+                      <mat-option *ngFor= "let claselist of claselist" [value]="claselist" >Precio {{claselist}}
+                      </mat-option>
+                    </mat-select >
+                  </mat-form-field>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="text-center">
+    <div class="centrar">
+        <table class="table table-striped text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>Id Vuelo</th>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                    <th>Fecha de Salida</th>
+                    <th>Hora de Salida</th>
+                    <th>Fecha de Llegada</th>
+                    <th>Hora de Llegada</th>
+                    <th>Precio Economico</th>
+                    <th>Precio Ejecutivo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let listavuelo of listavuelo">
+                    <th>{{listavuelo.idvuelo}}</th>
+                    <th>{{listavuelo.salida}}</th>
+                    <th>{{listavuelo.destino}}</th>
+                    <th>{{listavuelo.fechaSalida}}</th>
+                    <th>{{listavuelo.horasalida}}</th>
+                    <th>{{listavuelo.fechallegada}}</th>
+                    <th>{{listavuelo.horallegada}}</th>
+                    <th>{{listavuelo.precioeconomico}}</th>
+                    <th>{{listavuelo.precioejecutivo}}</th>
+                    <button (click)="seleccionarAvion(listavuelo.idavion, listavuelo.idvuelo)"
+                        class="btn btn-info">Selccionar </button>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<br>
+<table mat-table [dataSource]="dataSource" class="container mat-elevation-z8 tableVuelo " *ngIf="vuelo">
+
+    <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="A">
+        <th mat-header-cell *matHeaderCellDef> A </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-checkbox (click)="element[0].id_estado == 2 ?  seleccionar(element[0].id_asiento):null" value
+                color="{{element[0].id_estado == 2 ? '' : 'warn'}}"
+                disabled="{{element[0].id_estado == 2 ? 'false' : 'true'}}" *ngIf="element[0]">{{element[0].asiento}}
+            </mat-checkbox>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="B">
+        <th mat-header-cell *matHeaderCellDef> B </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-checkbox (click)="element[1].id_estado == 2 ?  seleccionar(element[1].id_asiento):null" value
+                color="{{element[1].id_estado == 2 ? '' : 'warn'}}"
+                disabled="{{element[1].id_estado == 2 ? 'false' : 'true'}}" *ngIf="element[1]">{{element[1].asiento}}
+            </mat-checkbox>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="C">
+        <th mat-header-cell *matHeaderCellDef> C </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-checkbox (click)="element[2].id_estado == 2 ?  seleccionar(element[2].id_asiento):null" value
+                color="{{element[2].id_estado == 2 ? '' : 'warn'}}"
+                disabled="{{element[2].id_estado == 2 ? 'false' : 'true'}}" *ngIf="element[2]">{{element[2].asiento}}
+            </mat-checkbox>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="D">
+        <th mat-header-cell *matHeaderCellDef> D </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-checkbox (click)="element[3].id_estado == 2 ?  seleccionar(element[3].id_asiento):null" value
+                color="{{element[3].id_estado == 2 ? '' : 'warn'}}"
+                disabled="{{element[3].id_estado == 2 ? 'false' : 'true'}}" *ngIf="element[3]">{{element[3].asiento}}
+            </mat-checkbox>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="E" *ngIf="tamanio">
+        <th mat-header-cell *matHeaderCellDef> E </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-checkbox (click)="element[4].id_estado == 2 ?  seleccionar(element[4].id_asiento):null" value
+                color="{{element[4].id_estado == 2 ? '' : 'warn'}}"
+                disabled="{{element[4].id_estado == 2 ? 'false' : 'true'}}" *ngIf="element[4]">{{element[4].asiento}}
+            </mat-checkbox>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="F" *ngIf="tamanio">
+        <th mat-header-cell *matHeaderCellDef> F </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-checkbox (click)="element[5].id_estado == 2 ?  seleccionar(element[5].id_asiento):null" value
+                color="{{element[5].id_estado == 2 ? '' : 'warn'}}"
+                disabled="{{element[5].id_estado == 2 ? 'false' : 'true'}}" *ngIf="element[5]">{{element[5].asiento}}
+            </mat-checkbox>
+        </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+<div class="container">
+
+</div>
+
+
+    <div class="container text-center">
+        <br>
+        <button (click)="reservar()" class="btn btn-success">Reservar</button>
+        <div class="row ">

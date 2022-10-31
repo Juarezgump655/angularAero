@@ -1,0 +1,46 @@
+body{
+    background-image: url("src\assets\Fondo.jpg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+mat-form-field.mat-form-field {
+    font-size: 28px;
+  }
+
+  
+  ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: white !important;
+  } 
+  ::ng-deep.mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: white !important;
+   }
+   h1{
+    font-family: 'Segoe UI Black', Courier, monospace;
+    color:white;
+    font-size: 60pt;
+  }
+  h2{
+    font-family: 'Segoe UI Black', Courier, monospace;
+    color:white;
+    font-size: 40pt;
+  }
+  .mat-radio-button {
+    margin-left: 16px;
+    color: white;
+
+  }
+  ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: white!important;   /*inner circle color change*/
+  }
+
+
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color:white!important; /*outer ring color change*/
+}
+::placeholder{
+  color: #C2C2C2 !important;
+}

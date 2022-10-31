@@ -1,0 +1,28 @@
+<h2>Lista Usuarios</h2>
+<div >
+<table class="table table-striped">
+    <thead class="table-dark">
+    <tr>
+      <th>Id</th> 
+      <th>No. pasaporte</th> 
+      <th>Nombre</th>  
+      <th>Email</th>  
+      <th>Numero de telefono</th>  
+      <th>Acciones</th>  
+    </tr>
+  </thead>
+    <tbody>
+    <tr *ngFor ="let Usuarios of Usuarios">
+      <th>{{Usuarios.idusuario}}</th>  
+      <th>{{Usuarios.numeroPasaporte}}</th>  
+      <th>{{Usuarios.nombreCliente}}</th>   
+      <th>{{Usuarios.correo}}</th>  
+      <th>{{Usuarios.numerotelefoono}}</th>  
+     <button (click)= "actualizarUsuario(Usuarios.idusuario)" class = "btn btn-info">Editar </button>
+     <button (click)= "eliminarUsuario(Usuarios.idusuario)" class = "btn btn-danger" style="margin-left: 10px">Eliminar </button> 
+     <button (click)= "verDetalles(Usuarios.idusuario)" class="btn btn-primary" style="margin-left: 10px">Detalles </button> 
+
+      </tr>
+  </tbody> 
+</table>
+</div>

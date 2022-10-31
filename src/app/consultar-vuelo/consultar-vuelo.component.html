@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-sm">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <button (click)="Home()" type="button" class="btn btn-link"
+                style="font-size: 20pt; color: white; font-family: 'Segoe UI Black', Courier, monospace; border: transparent; ">Juarezgump655@</button>
+        </li>
+    </ul>
+</nav>
+<br> <br>
+<br>
+
+<div class="text-center">
+    <h1>Consulta si hay vuelos disponibles</h1>
+</div>
+
+<br>
+<div class="container">
+    <div class="text-center">
+        <form [formGroup]="formulariobeta">
+
+      <div class="row ">
+                <div class="col">
+                    <mat-form-field appearance="standard" style="width:50%">
+                        <label for="fechasalida">Fecha de salida </label>
+                        <input formControlName="fechasalida" matInput type="date">
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <br> <br>
+                    <mat-form-field appearance="fill" style="width:75%">
+                        <mat-label>Ciudad</mat-label>
+                        <mat-select formControlName="idaeropuerto">
+                            <mat-option *ngFor="let ListaCiudades of ListaCiudades" [value]="ListaCiudades.idaeropuerto">
+                                {{ListaCiudades.direccion}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <br> <br>
+       
+                <button (click)=" filtro()" class="btn btn-success" class="Filtrar"> Consultar </button>
+                <button (click)=" traertodos()" class="btn btn-success" class="todo"> Buscar todos </button>
+        </form>
+    </div>
+    
+</div>
+
+<div class="text-center">
+    <div class="centrar">
+        <table class="table table-striped text-center" *ngIf="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>Id Vuelo</th>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                    <th>Fecha de Salida</th>
+                    <th>Hora de Salida</th>
+                    <th>Fecha de Llegada</th>
+                    <th>Hora de Llegada</th>
+                    <th>Precio Economico</th>
+                    <th>Precio precio ejecutivo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let listavuelo of listavuelo">
+                    <th>{{listavuelo.idvuelo}}</th>
+                    <th>{{listavuelo.salida}}</th>
+                    <th>{{listavuelo.destino}}</th>
+                    <th>{{listavuelo.fechaSalida}}</th>
+                    <th>{{listavuelo.horasalida}}</th>
+                    <th>{{listavuelo.fechallegada}}</th>
+                    <th>{{listavuelo.horallegada}}</th>
+                    <th>{{listavuelo.precioeconomico}}</th>
+                    <th>{{listavuelo.precioejecutivo}}</th>
+                    <button (click)="seleccionarAvion(listavuelo.idvuelo)" class="btn btn-info">Selccionar </button>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+h1{
+    font-family: 'Roboto Black', Courier, monospace;
+    color:Black;
+    font-size: 60pt;
+  }
+
+label{
+    font-family: 'Segoe UI Black', Courier, monospace;
+    color:Black;
+    font-size: 20pt;
+}
+input{
+  font-size: 15pt;
+}
+
+.centrar {
+    margin: 40px;
+    padding: 15px;
+ }
+
+ th {
+  size: 20%;
+  width: 10px;
+  height: 10px;
+ }
+
+
+ .navbar {
+  font-family: 'Roboto Black', Courier, monospace;
+  background-color: #516FFF;
+  font-size: 20pt;
+}
+ 
+.Filtrar{
+  width: 175px;
+  height: 50px;
+  font-family: 'Roboto Medium', Courier, monospace;
+  font-size: 15pt;
+  color:white;
+  background-color:#0C6187;
+  border-color: white;
+} 
+
+.todo{
+  width: 175px;
+  height: 50px;
+  font-family: 'Roboto Medium', Courier, monospace;
+  font-size: 15pt;
+  color:white;
+  background-color:#35BB33;
+  border-color: white;
+} 

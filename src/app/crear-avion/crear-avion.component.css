@@ -1,0 +1,99 @@
+h1{
+    font-family: 'Roboto Black', Courier, monospace;
+    color:Black;
+    font-size: 60pt;
+  }
+  .centrar {
+    margin: 40px;
+    padding: 15px;
+ }
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .example-is-mobile .example-toolbar {
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+  }
+  
+  h4.example-app-name {
+    margin-left: 8px;
+  }
+  
+  .example-sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1;
+  }
+  
+  .example-is-mobile .example-sidenav-container {
+    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+       `<body>` to be our scrolling element for mobile layouts. */
+    flex: 1 0 auto;
+  }
+  
+  mat-sidenav{
+    width: 15%;
+    background-color: #516FFF;
+  }
+  mat-icon{
+    color: white;
+  }
+  
+  mat-toolbar{
+    background-color: #516FFF;
+  }
+
+  .tableVuelo {
+    width: 10%;
+  }
+  
+  
+ .vistaprevia{
+  width: 175px;
+    height: 50px;
+    font-family: 'Roboto ', Courier, monospace;
+    font-size: 14pt;
+    background-color:#3bcd39;
+    border-color: transparent;
+    color: white;
+ }
+
+  .Guardar{
+    width: 175px;
+    height: 50px;
+    font-family: 'Segoe UI Black', Courier, monospace;
+    font-size: 25pt;
+    color:white;
+    background-color:#0C6187;
+    border-color: white;
+    border-radius: 30px
+  } 
+  label {
+    font-size: 14pt;
+  }
+  input {
+    font-size: 14pt;
+  }
+
+  .asientos{
+    border: black 1.5px solid;
+    border-radius: 25px;
+    font-family: 'Roboto Black', Courier, monospace;
+    height: 40pt;
+    width:  30pt;
+
+  }
+  h1{
+    font-family: 'Roboto Black', Courier, monospace;
+    color:Black;
+    font-size: 60pt;
+  }
